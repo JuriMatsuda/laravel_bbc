@@ -39,16 +39,20 @@ return [
             'prefix' => '',
         ],
 
-        'mysql' => array(
-            'driver'    => 'mysql',
-            'host'      => 'localhost',
-            'database'  => 'bbc',
-            'username'  => 'root',
-            'password'  => 'root',
-            'charset'   => 'utf8',
+        'mysql' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'forge'),
+            'username' => env('DB_USERNAME', 'forge'),
+            'password' => env('DB_PASSWORD', ''),
+            'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => '',
-        ),
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+            'unix_socket' => '/tmp/mysql.sock', // 新しく追加
+        ],
 
         'pgsql' => [
             'driver' => 'pgsql',
