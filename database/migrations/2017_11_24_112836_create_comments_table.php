@@ -1,7 +1,8 @@
 <?php
 
-use IlluminateDatabaseSchemaBlueprint;
-use IlluminateDatabaseMigrationsMigration;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateCommentsTable extends Migration
 {
@@ -12,7 +13,7 @@ class CreateCommentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('comments', function ($table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('post_id');
             $table->string('commenter');
@@ -28,6 +29,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('comments');
+        Schema::dropIfExists('comments');
     }
 }
